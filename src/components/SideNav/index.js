@@ -5,13 +5,13 @@ import accordionSlice from '../../Redux/Accordion/accordionSlice'
 import { getCategories } from '../../Redux/Category/actions'
 import { filterByPrice, filterProducts } from '../../Redux/Product/productSlice'
 import CategoriesContext from '../../Context/CategoriesContext'
-const SideNav = ({setNumberOfProducts,showProducts,setShowProducts}) => {
+const SideNav = ({setNumberOfProducts,showProducts,setShowProducts,setassendingOrder}) => {
 
     let accordionData= useSelector(state=>state.categoryReducer.categories);
     let  fetchedProductData= useSelector(state=>state.productReducer)
     let [products,setProducts] = useState();
     let [stateVar,setStateVar] = useState();
-    
+    let [assendingFlag, setAssendingFlag] = useState(false);
      //categories,setCategories
     let [minPriceLimit,setMinPriceLimit]= useState(50);
     let [maxPriceLimit,setMaxPriceLimit]= useState(130);
@@ -61,7 +61,7 @@ const SideNav = ({setNumberOfProducts,showProducts,setShowProducts}) => {
             <p>{stateVar}</p>
             <p>Set number of products: <input type="number" onChange={(e)=>setNumberOfProducts(e.target.value)} />    </p>
             <button onClick={()=>{setShowProducts(!showProducts)}}> Click to show or hide products</button>
-    
+            <button onClick={() =>{ setassendingOrder(!assendingFlag), setAssendingFlag(!assendingFlag) }}> {assendingFlag ? 'Assending' : 'Descending'}</button>
             <button onClick={()=>{setStateVar(20)}}>Click me</button>
         </div>
 
