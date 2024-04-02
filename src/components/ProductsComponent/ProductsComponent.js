@@ -7,7 +7,7 @@ import { getProducts } from '../../Redux/Product/actions';
 import { addCartItem } from '../../Redux/Cart/cartSlice';
 import { Link } from 'react-router-dom';
 //variable destructuring of props
-const Products=({typeOfProducts,showProducts, changeMainComponentVariable,numberOfProducts,assendingOrder})=>{
+const Products=({typeOfProducts,showProducts, changeMainComponentVariable,numberOfProducts})=>{
 
 if(typeOfProducts)
 {
@@ -67,18 +67,18 @@ if(showProducts)
       productDataNew.push(productData[i]);
       }
     }
-    let strAscending =[];
-    if(assendingOrder){
-      strAscending = productDataNew.sort((a, b) =>
-      a.product_name > b.product_name ? 1 : -1,
-
-      )
-    }else {
-      strAscending = productDataNew
+    
+    if(accText == 'acc') {
+      productDataNew.sort(function ( a, b ) {
+        if ( a.product_name < b.product_name ){
+          return -1;
+        }
+        if ( a.product_name > b.product_name ){
+          return 1;
+        }
+        return 0;
+      });
     }
-
-
-
 
     return(
  
@@ -87,7 +87,7 @@ if(showProducts)
         <button onClick={()=>changeMainComponentVariable(40)}>Change main component variable</button>
 
 
-    {showProducts && strAscending.map((eachProduct, index) &&   productDataNew.map((eachProduct,index)=>{
+    {showProducts &&   productDataNew.map((eachProduct,index)=>{
 
             
 return(
