@@ -5,7 +5,7 @@ import accordionSlice from '../../Redux/Accordion/accordionSlice'
 import { getCategories } from '../../Redux/Category/actions'
 import { filterByPrice, filterProducts } from '../../Redux/Product/productSlice'
 import CategoriesContext from '../../Context/CategoriesContext'
-const SideNav = ({setNumberOfProducts,showProducts,setShowProducts,ascendingFlag,setascendingOrder, descendingFlag, setdescendingOrder}) => {
+const SideNav = ({setNumberOfProducts,showProducts,setShowProducts,ascendingFlag,setascendingOrder, descendingFlag, setdescendingOrder, sortpriceFlag, setsortpriceOrder }) => {
 
     let accordionData= useSelector(state=>state.categoryReducer.categories);
     let  fetchedProductData= useSelector(state=>state.productReducer)
@@ -63,6 +63,7 @@ const SideNav = ({setNumberOfProducts,showProducts,setShowProducts,ascendingFlag
             <button onClick={()=>{setShowProducts(!showProducts)}}> Click to show or hide products</button>
             <button onClick={() =>{ setascendingOrder(!ascendingFlag) }}> Ascending </button>
             <button onClick={() =>{ setdescendingOrder(!descendingFlag) }}> Descending </button>
+            <button onClick={() =>{ setsortpriceOrder(!sortpriceFlag) }}> Sort by price </button>
             <button onClick={()=>{setStateVar(20)}}>Click me</button>
         </div>
 
