@@ -11,6 +11,7 @@ function MainComponent() {
   //prop drilling + state in the main component =>to manage component usage
   let [showProducts,setShowProducts] = useState(false);
   let [ascendingFlag,setascendingOrder] = useState(false);
+  let [descendingFlag,setdescendingOrder] = useState(false);
   let [newVar,setNewVar] = useState(0);
   //newVar=2
   //setNewVar(2);
@@ -44,13 +45,13 @@ function MainComponent() {
       <div className='col-lg-2 col-md-3 col-sm-4'>
     
     <p> value of newVar in main component:{newVar}</p>
-    <SideNav  setNumberOfProducts={setNumberOfProducts} showProducts={showProducts} setShowProducts={setShowProducts} setascendingOrder={setascendingOrder}  />
+    <SideNav  setNumberOfProducts={setNumberOfProducts} showProducts={showProducts} setShowProducts={setShowProducts} setascendingOrder={setascendingOrder} setdescendingOrder={setdescendingOrder}  />
     
 
 
     </div>
     <div className='col-lg-10 col-md-9 col-sm-8'>
-    <Products typeOfProducts={"clothes"} numberOfProducts={numberOfProducts}     showProducts={showProducts} changeMainComponentVariable={setNewVar} ascendingFlag={ascendingFlag} />
+    <Products typeOfProducts={"clothes"} numberOfProducts={numberOfProducts}     showProducts={showProducts} changeMainComponentVariable={setNewVar} ascendingFlag={ascendingFlag} descendingFlag={descendingFlag} />
     </div>
     
 

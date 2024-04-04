@@ -7,7 +7,7 @@ import { getProducts } from '../../Redux/Product/actions';
 import { addCartItem } from '../../Redux/Cart/cartSlice';
 import { Link } from 'react-router-dom';
 //variable destructuring of props
-const Products=({typeOfProducts,showProducts, changeMainComponentVariable,numberOfProducts,ascendingFlag})=>{
+const Products=({typeOfProducts,showProducts, changeMainComponentVariable,numberOfProducts,ascendingFlag, descendingFlag})=>{
 
 if(typeOfProducts)
 {
@@ -80,7 +80,17 @@ if(showProducts)
         });
       }
 
-
+      if(descendingFlag) {
+        productDataNew.sort(function ( a, b ) {
+          if ( a.product_name < b.product_name ){
+            return 1;
+          }
+          if ( a.product_name > b.product_name ){
+            return -1;
+          }
+          return 0;
+        });
+      }
 
 
     return(
