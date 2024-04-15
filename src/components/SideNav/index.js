@@ -42,6 +42,7 @@ const SideNav = ({setNumberOfProducts,showProducts,setShowProducts,ascendingFlag
         const payload ={selectedCategory,products};
         dispatch(filterProducts(payload))
         console.log(products);
+        console.log('hi');
     }
 
 
