@@ -64,7 +64,7 @@ const SideNav = ({setNumberOfProducts,showProducts,setShowProducts}) => {
    }
 
    const expensiveFetchOperation = () => {
-    
+    console.log('update')
     console.log("calculating the operation");
     let result = 0;
     //fetch is taking a lot of time , we are mimicking this 
